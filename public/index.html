@@ -24,7 +24,6 @@
       }
       h1{
           display: flex;
-          justify-content: space-around;
           position: fixed;
           top:0px;
           color:#323232;
@@ -35,6 +34,7 @@
           -webkit-box-shadow: -5px 10px 13px -12px rgba(0,0,0,0.43);
           -moz-box-shadow: -5px 10px 13px -12px rgba(0,0,0,0.43);
           box-shadow: -5px 10px 13px -12px rgba(0,0,0,0.43);
+          align-items: center;
       }
       .card {
           background: white;
@@ -96,14 +96,26 @@
           color: #ff5b12;
       }
 
+      #time{
+          margin-left: 15%;
+      }
 
+      .change-color{
+          width: 32px;
+          height:32px;
+          border:none;
+          border-radius: 50%;
+          margin-right: 30px;
+          background: #fff url("./dark-mode.png")  no-repeat center;
+          background-size: contain;
+      }
       .dark-mode {
           background: rgb(0,0,0);
           background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(40,40,40,1) 50%, rgba(54,54,54,1) 100%);
       }
 
       .dark-mode h1{
-          background: #05171f;
+          background: #000;
           color:white;
       }
       .dark-mode .card{
@@ -111,12 +123,18 @@
           background: #05171f;
           border: 1px solid #09190b;
       }
+      .dark-mode .change-color{
+      }
 
   </style>
 </head>
 <body>
 
-<h1>Ingelheim Hbf <span id="time"></span></h1>
+
+<h1>
+  <button class="change-color" id="change-color"></button>
+  Ingelheim Hbf <span id="time"></span>
+</h1>
 
 <div id="table-container"></div>
 
@@ -188,8 +206,10 @@ ${journey.rtInfo.status.toLowerCase() === "delayed" ? `<h4>${journey.time} +${ j
     } else {
       if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
         document.body.classList.add('dark-mode');
+        localStorage.setItem("theme", "dark");
       } else {
         document.body.classList.remove('dark-mode');
+        localStorage.setItem("theme", "light");
       }
     }
   }
@@ -199,6 +219,17 @@ ${journey.rtInfo.status.toLowerCase() === "delayed" ? `<h4>${journey.time} +${ j
     setTheme();
     fetchDataAndBuildTable();
     setInterval( () => fetchDataAndBuildTable(), 60000);
+    document.getElementById("change-color").addEventListener("click", () => {
+      const storedTheme = localStorage.getItem('theme');
+
+      if(storedTheme === "dark"){
+        localStorage.setItem("theme", "light");
+      }else{
+        localStorage.setItem("theme", "dark");
+      }
+
+      setTheme();
+    })
   });
 
   // if ('serviceWorker' in navigator) {
