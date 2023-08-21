@@ -25,9 +25,10 @@ exports.fahrplan = onRequest(async (request, response) => {
   }else {
 
     try {
-      const now = new Date();
-      const hours = String(now.getHours()).padStart(2, '0');
-      const minutes = String(now.getMinutes()).padStart(2, '0');
+      const nowInGermany = new Date().toLocaleString("en-US", { timeZone: "Europe/Berlin" });
+      const dateInGermany = new Date(nowInGermany);
+      const hours = String(dateInGermany.getHours()).padStart(2, '0');
+      const minutes = String(dateInGermany.getMinutes()).padStart(2, '0');
 
       const timeString = `${hours}:${minutes}:00`;
       const url = `https://www.rmv.de/auskunft/bin/jp/stboard.exe/dn?L=vs_anzeigetafel&cfgfile=FreiWeinhe_4001657_133772753&dataOnly=true&start=1&maxJourneys=20&wb=COOL&time=${timeString}`;
