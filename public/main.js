@@ -29,6 +29,8 @@
   async function fetchDataAndBuildTable() {
     displayCurrentHour();
     try {
+      document.getElementById('loading').style.display = "block";
+      document.getElementById('table-container').style.display = "none";
       // const response = await fetch('http://127.0.0.1:5001/ingelheim-fahrplan/us-central1/fahrplan');
       const response = await fetch('https://fahrplan-ics4sb2gxa-uc.a.run.app/');
       const journeys = await response.json();
@@ -36,6 +38,8 @@
       if (journeys) {
         globalJourneys = journeys;
         buildTable();
+        document.getElementById('loading').style.display = "none";
+        document.getElementById('table-container').style.display = "block";
       } else {
         console.error('Invalid data format');
       }

@@ -30,8 +30,66 @@
   <button id="filter-train" data-filter="train">Zug</button>
 </div>
 
-<div id="table-container"></div>
+<div id="table-container" style="display: none"></div>
+
+<div id="loading">
+  <div class="card card-delayed">
+    <div class="time">
+      <div class="skeleton skeleton-text " style="height: 38px"></div>
+      <div class="skeleton skeleton-text "></div>
+    </div>
+    <div class="info">
+      <div class="skeleton skeleton-text " style="height: 38px; width:150px"></div>
+      <div class="skeleton skeleton-text" style="width:80%;height:21px"></div>
+    </div>
+    <div class="gleis">
+      <div class="skeleton skeleton-text " style="height: 16px; width:31px"></div>
+      <div class="skeleton skeleton-text " style="height: 41px; width:50px"></div>
+
+    </div>
+  </div>
+
+  <div class="card card-delayed">
+    <div class="time">
+      <div class="skeleton skeleton-text " style="height: 38px"></div>
+      <div class="skeleton skeleton-text "></div>
+    </div>
+    <div class="info">
+      <div class="skeleton skeleton-text " style="height: 38px; width:150px"></div>
+      <div class="skeleton skeleton-text" style="width:80%;height:21px"></div>
+    </div>
+    <div class="gleis">
+      <div class="skeleton skeleton-text " style="height: 16px; width:31px"></div>
+      <div class="skeleton skeleton-text " style="height: 41px; width:50px"></div>
+
+    </div>
+  </div>
+  <div class="card card-delayed">
+    <div class="time">
+      <div class="skeleton skeleton-text " style="height: 38px"></div>
+      <div class="skeleton skeleton-text "></div>
+    </div>
+    <div class="info">
+      <div class="skeleton skeleton-text " style="height: 38px; width:150px"></div>
+      <div class="skeleton skeleton-text" style="width:80%;height:21px"></div>
+    </div>
+    <div class="gleis">
+      <div class="skeleton skeleton-text " style="height: 16px; width:31px"></div>
+      <div class="skeleton skeleton-text " style="height: 41px; width:50px"></div>
+
+    </div>
+  </div>
+
+</div>
+
 
 <script type="text/javascript" src="./main.js"></script>
+<script type="text/javascript">
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function () {
+      navigator.serviceWorker.register('/service-worker.js');
+    });
+  }
+</script>
 </body>
 </html>
