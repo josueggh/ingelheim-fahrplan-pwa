@@ -1,0 +1,199 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    background: #ccf3fd;
+    background: linear-gradient(0deg, #ccf3fd 0%, #baeaff 50%, #aee0f2 100%);
+    font-family: 'Noto Serif Vithkuqi', serif;
+    font-family: 'Nunito Sans', sans-serif;
+    font-family: 'Poppins', sans-serif;
+    padding-top: 75px;
+    min-height: 100vh;
+}
+
+h1 {
+    display: flex;
+    position: fixed;
+    top: 0px;
+    color: #323232;
+    background: white;
+    font-size: 24px;
+    padding: 18px 15px;
+    width: 100%;
+    -webkit-box-shadow: -5px 10px 13px -12px rgba(0, 0, 0, 0.43);
+    -moz-box-shadow: -5px 10px 13px -12px rgba(0, 0, 0, 0.43);
+    box-shadow: -5px 10px 13px -12px rgba(0, 0, 0, 0.43);
+    align-items: center;
+}
+
+.card {
+    background: white;
+    color: #443f3f;
+    padding: 15px 10px;
+    border: 1px solid #ddd;
+    border-radius: 14px;
+    margin: 10px;
+    display: flex;
+    justify-content: space-around;
+    -webkit-box-shadow: -5px 9px 13px -12px rgba(0, 0, 0, 0.43);
+    -moz-box-shadow: -5px 9px 13px -12px rgba(0, 0, 0, 0.43);
+    box-shadow: -5px 9px 13px -12px rgba(0, 0, 0, 0.43);
+}
+
+.card h2 {
+    font-size: 25px;
+
+}
+
+.card h3 {
+    font-size: 14px;
+    font-weight: normal;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 90%;
+}
+
+.card h4 {
+    font-size: 12px;
+}
+
+.time {
+    color: #61ad30;
+    width: 80px;
+    padding-right: 10px;
+    border-right: 1px solid #ccc;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.gleis {
+    width: 64px;
+    font-weight: bold;
+    font-size: 25px;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    border-left: 1px solid #ccc;
+    flex-direction: column;
+}
+
+.gleis small {
+    font-size: 13px;
+}
+
+.info {
+    margin-left: 10px;
+    width: calc(100% - 160px);
+}
+
+.card-delayed .time{
+    color: #ff5b12;
+}
+
+.card-cancelled .info{
+    text-decoration: line-through;
+}
+
+.card-cancelled .time{
+    color: #e10000;
+
+}
+#time {
+    margin-left: 15%;
+}
+
+.change-color {
+    width: 32px;
+    height: 32px;
+    border: none;
+    border-radius: 50%;
+    margin-right: 30px;
+    background: transparent url("./mode-night.png") no-repeat center;
+    background-size: contain;
+}
+
+.filters{
+    display: flex;
+    margin: 10px;
+    justify-content: space-around;
+    align-items: center;
+}
+.filters button {
+    width: 32%;
+    background-color: white;
+    background-size :24px;
+    background-position: 15px center;
+    background-repeat: no-repeat;
+    color: #443f3f;
+    padding: 15px 10px;
+    border: 1px solid #ddd;
+    border-radius: 14px;
+    margin: 10px 2px 5px 2px;
+    font-size: 18px;
+}
+.filters button.selected {
+    background-color: #3588af;
+    color: white;
+    border-color: #3ea1d0;
+}
+.filters button#filter-all {
+    background-size :30px;
+    background-image: url("./public-transport-black.png");
+}
+
+.filters button#filter-bus {
+    background-image: url("./bus-black.png");
+}
+
+.filters button#filter-train {
+    background-image: url("./train-black.png");
+}
+
+.dark-mode {
+    background: rgb(0, 0, 0);
+    background: linear-gradient(0deg, rgb(4 28 38) 0%, rgb(13 36 47) 50%, rgb(18 36 44) 100%);
+}
+.dark-mode .change-color{
+    background: transparent url("./mode-light.png") no-repeat center;
+    background-size: contain;
+}
+
+.dark-mode h1 {
+    background: #05171f;
+    color: white;
+}
+
+.dark-mode .card {
+    color: white;
+    background: #05171f;
+    border: 1px solid #09190b;
+}
+
+.dark-mode .filters button {
+    color: white;
+    background-color: #05171f;
+    border: 1px solid #0a2744;
+}
+
+.dark-mode  .filters button.selected {
+    background-color: #05171f;
+    color: white;
+    border-color: #2c799b;
+}
+.dark-mode  .filters button#filter-all,.filters button#filter-all.selected {
+    background-size :30px;
+    background-image: url("./public-transport-white.png");
+}
+
+.dark-mode  .filters button#filter-bus ,.filters button#filter-bus.selected{
+    background-image: url("./bus-white.png");
+}
+
+.dark-mode  .filters button#filter-train ,.filters button#filter-train.selected{
+    background-image: url("./train-white.png");
+}
