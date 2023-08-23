@@ -119,8 +119,8 @@ const transformRNN = (input) => {
 exports.fahrplan = onRequest(async (request, response) => {
   logger.info("Retrieving RMV data", {structuredData: true});
 
-  // response.set('Access-Control-Allow-Origin', 'https://ingelheim-fahrplan.web.app');
-  response.set('Access-Control-Allow-Origin', 'http://localhost:5002');
+  response.set('Access-Control-Allow-Origin', 'https://ingelheim-fahrplan.web.app');
+  // response.set('Access-Control-Allow-Origin', 'http://localhost:5002');
 
   if (request.method === 'OPTIONS') {
     response.set('Access-Control-Allow-Methods', 'GET');
